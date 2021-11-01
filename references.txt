@@ -9,4 +9,3 @@ Mailboxes names in Gmail
 "[Gmail]/Spam",
 "[Gmail]/Starred",
 "[Gmail]/Trash",
-

@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "npx functions-framework --target=helloHttp"
+  },
   "dependencies": {
     "@notionhq/client": "^0.4.4",
     "axios": "^0.23.0",
+    "bluebird": "^3.7.2",
     "dotenv": "^10.0.0",
     "fs-extra": "^10.0.0",
     "imap": "^0.8.19",
     "mailparser": "^3.4.0"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.9.0"
   }
 }
