@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "npx functions-framework --target=helloHttp"
+    "test": "npx functions-framework --target=helloHttp --port=8080"
   },
   "dependencies": {
     "@notionhq/client": "^0.4.4",

@@ -1,7 +1,7 @@
 const booksToNotion = require("./lib/bookNotesToNotion");
 const axios = require("axios");
 
-exports.helloHttp = async (req, res) => {
+exports.helloWorkflows = async (req, res) => {
   try {
     switch (req.params[0]) {
       case "booksToNotion":
