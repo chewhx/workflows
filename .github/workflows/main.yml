@@ -1,20 +1,20 @@
 name: Publish to Google Cloud Functions
 
-on: 
-  push: 
+on:
+  push:
     branches: [master]
 
 jobs:
-  build:
+  Deploy Cloud Function:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v1
-        with: 
+        with:
           node-version: 14
 
       - name: Setup GCloud
@@ -22,9 +22,7 @@ jobs:
         with:
           service_account_key: ${{ secrets.GCP_CREDENTIALS }}
           export_default_credentials: true
-          
+
       - name: Deploy to GCloud Functions
-        run: 
-          npm ci
-          gcloud functions deploy helloWorkflows --runtime node14 --trigger-http --allow-unauthenticated --set-env-vars EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }},EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }},EMAIL_HOST=${{ secrets.EMAIL_HOST }},EMAIL_PORT=${{ secrets.EMAIL_PORT }},NOTION_API_TOKEN=${{ secrets.NOTION_API_TOKEN }},NOTION_BOOK_DATABASE_ID=${{ secrets.NOTION_BOOK_DATABASE_ID }}
-      
+        run: npm ci
+        run: gcloud functions deploy helloWorkflows --runtime node14 --trigger-http --allow-unauthenticated --set-env-vars EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }},EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }},EMAIL_HOST=${{ secrets.EMAIL_HOST }},EMAIL_PORT=${{ secrets.EMAIL_PORT }},NOTION_API_TOKEN=${{ secrets.NOTION_API_TOKEN }},NOTION_BOOK_DATABASE_ID=${{ secrets.NOTION_BOOK_DATABASE_ID }}
