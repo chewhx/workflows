@@ -27,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Set GCloud Project Id
-        run: gcloud config set project chewhx/workflows
+        run: gcloud config set project chewhx-workflows
 
       - name: Deploy to GCloud Functions
         run: gcloud functions deploy helloWorkflows --entry-point helloWorkflows --runtime node14 --trigger-http --allow-unauthenticated --set-env-vars EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }},EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }},EMAIL_HOST=${{ secrets.EMAIL_HOST }},EMAIL_PORT=${{ secrets.EMAIL_PORT }},NOTION_API_TOKEN=${{ secrets.NOTION_API_TOKEN }},NOTION_BOOK_DATABASE_ID=${{ secrets.NOTION_BOOK_DATABASE_ID }}
