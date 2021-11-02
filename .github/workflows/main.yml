@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  Deploy Cloud Function:
+  build:
     runs-on: ubuntu-latest
 
     steps:
